@@ -25,6 +25,7 @@
   @keyframes splashWiggle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
   @keyframes splashBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
+
   /* ---- responsive: laptop default, iPad & mobile reflow ---- */
   img{max-width:100%}
   /* ---- responsive: laptop default, iPad & mobile reflow ---- */
@@ -542,6 +543,203 @@
     </sc-for>
   </div>
 
+  <sc-if value="{{ isSmytten }}" hint-placeholder-val="{{ false }}">
+    
+
+    <div class="detail-section" style="margin-top:30px;max-width:999px;width:100%">
+      <img src="./frame-2147224476-mrmhc5lq-fqii.png" alt="Hero / cover image" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;display:block">
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Brief</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">At Smytten, the Product Detail Page (PDP) plays a critical role in the conversion journey. Users discover products, evaluate trust signals, compare opinions, and decide whether to move forward with a purchase.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:8px">But while tracking user behavior across the funnel, we noticed a recurring problem:</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;color:#181510;border-left:3px solid #FF3B1F;padding-left:22px;margin:18px 0 22px">Users were spending time on the PDP, especially around reviews, but many were exiting before making a purchase.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">This drop-off was directly impacting conversion performance.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">For categories like skincare and beauty, users rarely purchase based on product descriptions alone. They look for reassurance from real users before making a decision. Reviews had become one of the strongest trust indicators within the journey.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:6px">The problem was</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">many products simply didn't have enough meaningful reviews to build confidence.</p>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Understanding the Problem</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:10px">To understand what was happening, I collaborated closely with the Product Manager to analyze user behavior through:</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Funnel analysis</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Session recordings</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Review page interaction tracking</li>
+      </ul>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">Tools Used</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">MoEngage</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Clarity</li>
+      </ul>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">What we discovered was interesting.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">Users were actively opening the review section before purchasing, but products with fewer reviews created hesitation and uncertainty. In many cases, users simply abandoned the journey without progressing further.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">At the same time, we noticed another behavioral pattern: users who had bad product experiences were naturally more likely to leave reviews, while users who had positive experiences often moved on without contributing anything.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">This created an imbalance:</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">fewer reviews overall</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">inconsistent trust signals</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">weaker social proof across PDPs</li>
+      </ul>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:6px">The business impact was clear:</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">low trust was increasing friction inside the conversion funnel.</p>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Funnel Performance Before vs After Feature Rollout</h2>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Business Impact</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">After introducing reward-based reviews and AI-powered review summaries, we observed stronger progression within the purchase funnel.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">The most noticeable improvement was seen between the PDP and Cart stage, where conversion progression increased from 58% to 63%, indicating improved purchase confidence and reduced friction during product evaluation.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">The feature also contributed to:</p>
+      <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">higher review participation</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">stronger PDP engagement</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">faster user decision-making</li>
+      </ul>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Phase 1 — Solving the Trust Gap</h2>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:6px">Our first objective was simple:</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">increase authentic review participation across products.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">But instead of forcing users into feedback flows, we wanted to create motivation at the right moment in the journey.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">We introduced a reward-based review system where users received 5–10 Smytten Bucks for submitting product reviews after delivery.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">Once a product was delivered, users received a push notification encouraging them to share feedback and earn rewards redeemable within the platform ecosystem.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">The experience was intentionally designed to feel:</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">lightweight</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">rewarding</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">frictionless</li>
+      </ul>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">The goal wasn't just collecting more reviews.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">It was strengthening trust signals across the PDP experience.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">And it worked.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">Review participation started increasing across products, helping users discover more authentic product experiences before purchasing.</p>
+      <div style="margin-top:30px;display:flex;flex-direction:column;align-items:center">
+        
+        <img src="./frame-2147224675-mrmhcy2k-3ayp.png" alt="Hero / cover image" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;display:block">
+      </div>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-top:24px">But shortly after improving one problem, another one surfaced.</p>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">A New UX Problem Emerged</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">As review volume increased, user behavior started shifting again.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">Users were now spending excessive time scrolling through reviews, comparing opinions, filtering sentiments manually, and trying to understand whether a product was actually suitable for them.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">Session recordings revealed users repeatedly:</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">scrolling through long review sections</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">opening multiple reviews</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">comparing positive and negative experiences</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">exiting the PDP without progressing further</li>
+      </ul>
+      <div style="margin-top:8px">
+        
+        <img src="./frame-2147224676-mrmhd6l3-h39q.png" alt="Session recording insights / long review section" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;display:block">
+      </div>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-top:24px;margin-bottom:6px">The issue was no longer:</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;color:#181510;border-left:3px solid #FF3B1F;padding-left:22px;margin:14px 0 22px">"Users don't have enough information."</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">The issue became:</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;color:#181510;border-left:3px solid #FF3B1F;padding-left:22px;margin:14px 0 22px">"Users have too much information to process."</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">This created decision fatigue inside the purchase journey.</p>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Rethinking the Review Experience</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">At this stage, we explored how users consume reviews rather than how many reviews existed.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">Traditional filtering and sorting patterns could help users navigate reviews, but they still required effort:</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">users had to manually filter ratings, compare sentiments, and interpret feedback themselves.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">We wanted to reduce the effort required to reach a decision.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">Instead of making users search for answers, we asked:</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;color:#181510;border-left:3px solid #FF3B1F;padding-left:22px;margin:14px 0 22px">"What if the interface could summarize collective user sentiment instantly?"</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">This led to the AI Summary concept.</p>
+      <div style="margin-top:24px">
+        
+        <img src="./frame-2147224476-mrmhdf5x-ty3d.png" alt="Early AI Summary exploration / wireframe" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;display:block">
+      </div>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">The Solution — AI-Powered Review Summaries</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">We introduced concise AI-generated summaries directly inside the PDP review section.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">As users reached the review area, they were shown:</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">a short summary generated from real user reviews</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">quick sentiment chips</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">contextual "good fit / not ideal for" indicators</li>
+      </ul>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">The goal was not to replace reviews.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">The goal was to help users understand reviews faster.</p>
+      <div style="margin-top:30px;display:flex;flex-direction:column;align-items:center">
+        
+        
+      </div>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Designing for Personal Relevance</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">One important UX decision was avoiding generic "good" or "bad" labeling.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">Beauty and skincare products are highly subjective. A product that works well for one user may not work for another.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">Instead of saying:</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;color:#181510;border-left:3px solid #FF3B1F;padding-left:22px;margin:14px 0 22px">"This product is bad"</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">the experience focused on:</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;color:#181510;border-left:3px solid #FF3B1F;padding-left:22px;margin:14px 0 22px">"This product may not be suitable for your specific need."</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">For example:</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Not for frizzy hair</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Good for dry hair</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Better for lightweight hydration</li>
+      </ul>
+      <div style="margin-top:8px;display:flex;flex-direction:column;align-items:center">
+        
+        <img src="./1_ogtxfqe_ejw81jvs17llqq-mrmhdvlb-o85l.webp" alt="Early AI Summary exploration / wireframe" style="width: 1002px; aspect-ratio: 16/9; object-fit: scale-down; border-radius: 0px; display: block; height: 158px">
+      </div>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-top:24px;margin-bottom:16px">This shifted the experience from broad product judgment to contextual product understanding.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">And from a business perspective, it helped users make faster and more confident decisions without leaving the PDP journey.</p>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">My Contribution</h2>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">As the UX Designer on the project, I worked on:</p>
+      <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">User behavior analysis through funnel tracking and session recordings</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Identifying trust and decision-fatigue friction points</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Designing the review feedback journey</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Collaborating closely with the Product Manager on product direction</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Defining the AI summary experience from a UX perspective</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Simplifying review consumption within the PDP flow</li>
+      </ul>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Outcomes</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:24px">The project helped improve how users interacted with reviews during the purchase journey.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">Impact</p>
+      <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Increased review submissions across products</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Faster user decision-making</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Better interaction with PDP review sections</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Reduced friction within the conversion funnel</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">PDP to Cart progression improved from 58% → 63%</li>
+      </ul>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Key Learning</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">One of the biggest learnings from this project was understanding how solving one business problem can unintentionally create another.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">Increasing review participation successfully improved trust across the platform, but it also introduced information overload.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:6px">The real UX challenge wasn't simply adding more content.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">It was helping users consume the right information faster and with less effort.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">This project reinforced the importance of designing not just for engagement, but for clarity, confidence, and decision-making speed within high-intent user journeys.</p>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ caseNotSmytten }}" hint-placeholder-val="{{ true }}">
   <sc-for list="{{ caseSections }}" as="sec" hint-placeholder-count="4">
     <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
       <sc-if value="{{ sec.h }}" hint-placeholder-val="{{ true }}">
@@ -569,6 +767,7 @@
       </sc-if>
     </div>
   </sc-for>
+  </sc-if>
 
 </div>
 </sc-if>
@@ -646,9 +845,9 @@ const CASES = {
   smytten: {
     kicker: "Case study 01",
     client: "Smytten",
-    chips: ["UX", "Conversion Optimization", "AI", "Customer Feedback"],
+    chips: ["UX", "Conversion Optimization", "AI", "Review", "Customer Feedback"],
     title: "Building Trust in Product Discovery Through AI-Powered Review Summaries",
-    subtitle: "How we reduced PDP drop-offs by improving trust, simplifying decision-making, and transforming how users consume reviews on Smytten.",
+    subtitle: "How we reduced PDP drop-offs by improving trust, simplifying decision-making, and transforming how users consume reviews.",
     meta: [
       { k: "Role", v: "UX Designer" },
       { k: "Company", v: "Smytten" },
@@ -666,41 +865,74 @@ const CASES = {
     sections: [
       { h: "Brief", p: [
         "At Smytten, the Product Detail Page (PDP) plays a critical role in the conversion journey. Users discover products, evaluate trust signals, compare opinions, and decide whether to move forward with a purchase.",
-        "While tracking user behaviour across the funnel, we noticed a recurring problem: users were spending time on the PDP, especially around reviews, but many were exiting before making a purchase. This drop-off was directly impacting conversion performance.",
-        "For categories like skincare and beauty, users rarely purchase based on product descriptions alone. They look for reassurance from real users before deciding. Reviews had become one of the strongest trust indicators in the journey — but many products simply didn’t have enough meaningful reviews to build confidence." ] },
-      { h: "Understanding the problem", p: [
-        "To understand what was happening, I collaborated closely with the Product Manager to analyse user behaviour through funnel analysis, session recordings and review-page interaction tracking — using MoEngage and Clarity.",
+        "But while tracking user behavior across the funnel, we noticed a recurring problem: Users were spending time on the PDP, especially around reviews, but many were exiting before making a purchase.",
+        "This drop-off was directly impacting conversion performance.",
+        "For categories like skincare and beauty, users rarely purchase based on product descriptions alone. They look for reassurance from real users before making a decision. Reviews had become one of the strongest trust indicators within the journey.",
+        "The problem was many products simply didn’t have enough meaningful reviews to build confidence." ] },
+      { h: "Understanding the Problem", p: [
+        "To understand what was happening, I collaborated closely with the Product Manager to analyze user behavior through: Funnel analysis, Session recordings, Review page interaction tracking.",
+        "Tools Used: MoEngage, Clarity.",
+        "What we discovered was interesting.",
         "Users were actively opening the review section before purchasing, but products with fewer reviews created hesitation and uncertainty. In many cases, users simply abandoned the journey without progressing further.",
-        "There was also a behavioural imbalance: users who had bad product experiences were more likely to leave reviews, while users who had positive experiences often moved on without contributing. The result was fewer reviews overall, inconsistent trust signals, and weaker social proof across PDPs — low trust was increasing friction inside the conversion funnel." ] },
-      { h: "Phase 1 — Solving the trust gap", p: [
-        "Our first objective was simple: increase authentic review participation across products. But instead of forcing users into feedback flows, we wanted to create motivation at the right moment in the journey.",
-        "We introduced a reward-based review system where users received 5–10 Smytten Bucks for submitting product reviews after delivery. Once a product was delivered, users received a push notification encouraging them to share feedback and earn rewards redeemable within the platform ecosystem.",
-        "The experience was intentionally designed to feel lightweight, rewarding and frictionless. Review participation started increasing across products, helping users discover more authentic product experiences before purchasing." ],
+        "At the same time, we noticed another behavioral pattern: users who had bad product experiences were naturally more likely to leave reviews, while users who had positive experiences often moved on without contributing anything.",
+        "This created an imbalance: fewer reviews overall, inconsistent trust signals, weaker social proof across PDPs.",
+        "The business impact was clear: low trust was increasing friction inside the conversion funnel." ] },
+      { h: "Business Impact", p: [
+        "After introducing reward-based reviews and AI-powered review summaries, we observed stronger progression within the purchase funnel.",
+        "The most noticeable improvement was seen between the PDP and Cart stage, where conversion progression increased from 58% to 63%, indicating improved purchase confidence and reduced friction during product evaluation.",
+        "The feature also contributed to: higher review participation, stronger PDP engagement, faster user decision-making." ] },
+      { h: "Phase 1 — Solving the Trust Gap", p: [
+        "Our first objective was simple: increase authentic review participation across products.",
+        "But instead of forcing users into feedback flows, we wanted to create motivation at the right moment in the journey.",
+        "We introduced a reward-based review system where users received 5–10 Smytten Bucks for submitting product reviews after delivery.",
+        "Once a product was delivered, users received a push notification encouraging them to share feedback and earn rewards redeemable within the platform ecosystem.",
+        "The experience was intentionally designed to feel: lightweight, rewarding, frictionless.",
+        "The goal wasn’t just collecting more reviews. It was strengthening trust signals across the PDP experience.",
+        "And it worked.",
+        "Review participation started increasing across products, helping users discover more authentic product experiences before purchasing." ],
         img: "assets/smytten-phase1-reviews.png",
         imgAlt: "Reward-based review flow — feedbacks list, product rating sheet, and the Bucks-earned reward screen",
         imgCaption: "Reward-based review flow: browse available feedbacks, rate the product, and earn Smytten Bucks." },
-      { h: "A new UX problem emerged", p: [
-        "Shortly after improving one problem, another surfaced. As review volume increased, users started spending excessive time scrolling through reviews, comparing opinions, filtering sentiments manually, and trying to understand whether a product was actually suitable for them.",
-        "Session recordings revealed users repeatedly scrolling through long review sections, opening multiple reviews, comparing positive and negative experiences, and exiting the PDP without progressing.",
-        "The issue was no longer “users don’t have enough information.” It became “users have too much information to process.” This created decision fatigue inside the purchase journey." ] },
-      { h: "Rethinking the review experience", p: [
-        "At this stage, we explored how users consume reviews rather than how many reviews existed. Traditional filtering and sorting patterns could help users navigate, but they still required effort — users had to manually filter ratings, compare sentiments, and interpret feedback themselves.",
-        "We wanted to reduce the effort required to reach a decision. Instead of making users search for answers, we asked: what if the interface could summarise collective user sentiment instantly? This led to the AI Summary concept." ] },
-      { h: "The solution — AI-powered review summaries", p: [
-        "We introduced concise, AI-generated summaries directly inside the PDP review section. As users reached the review area, they were shown a short summary generated from real user reviews, quick sentiment chips, and contextual “good fit / not ideal for” indicators.",
-        "The goal was not to replace reviews. The goal was to help users understand reviews faster." ] },
-      { h: "Designing for personal relevance", p: [
-        "One important UX decision was avoiding generic “good” or “bad” labelling. Beauty and skincare products are highly subjective — a product that works well for one user may not work for another.",
-        "Instead of saying “this product is bad,” the experience focused on “this product may not be suitable for your specific need.” For example: Not for frizzy hair, Good for dry hair, Better for lightweight hydration.",
-        "This shifted the experience from broad product judgement to contextual product understanding — helping users make faster, more confident decisions without leaving the PDP journey." ] },
-      { h: "My contribution", p: [
-        "As the UX Designer on the project, I led user-behaviour analysis through funnel tracking and session recordings, identified the trust and decision-fatigue friction points, designed the review feedback journey, collaborated closely with the Product Manager on product direction, and defined the AI summary experience from a UX perspective." ] },
-      { h: "Outcomes & impact", p: [
-        "After introducing reward-based reviews and AI-powered review summaries, we observed stronger progression within the purchase funnel. The most noticeable improvement was between the PDP and Cart stage, where conversion progression increased from 58% to 63% — indicating improved purchase confidence and reduced friction during product evaluation.",
-        "The feature also contributed to higher review participation, stronger PDP engagement, and faster user decision-making." ] },
-      { h: "Key learning", p: [
-        "One of the biggest learnings was understanding how solving one business problem can unintentionally create another. Increasing review participation successfully improved trust across the platform, but it also introduced information overload.",
-        "The real UX challenge wasn’t simply adding more content — it was helping users consume the right information faster and with less effort. This project reinforced the importance of designing not just for engagement, but for clarity, confidence, and decision-making speed within high-intent user journeys." ] },
+      { h: "A New UX Problem Emerged", p: [
+        "As review volume increased, user behavior started shifting again.",
+        "Users were now spending excessive time scrolling through reviews, comparing opinions, filtering sentiments manually, and trying to understand whether a product was actually suitable for them.",
+        "Session recordings revealed users repeatedly: scrolling through long review sections, opening multiple reviews, comparing positive and negative experiences, exiting the PDP without progressing further.",
+        "The issue was no longer: “Users don’t have enough information.”",
+        "The issue became: “Users have too much information to process.”",
+        "This created decision fatigue inside the purchase journey." ] },
+      { h: "Rethinking the Review Experience", p: [
+        "At this stage, we explored how users consume reviews rather than how many reviews existed.",
+        "Traditional filtering and sorting patterns could help users navigate reviews, but they still required effort: users had to manually filter ratings, compare sentiments, and interpret feedback themselves.",
+        "We wanted to reduce the effort required to reach a decision.",
+        "Instead of making users search for answers, we asked: What if the interface could summarize collective user sentiment instantly?",
+        "This led to the AI Summary concept." ] },
+      { h: "The Solution — AI-Powered Review Summaries", p: [
+        "We introduced concise AI-generated summaries directly inside the PDP review section.",
+        "As users reached the review area, they were shown: a short summary generated from real user reviews, quick sentiment chips, contextual “good fit / not ideal for” indicators.",
+        "The goal was not to replace reviews.",
+        "The goal was to help users understand reviews faster." ] },
+      { h: "Designing for Personal Relevance", p: [
+        "One important UX decision was avoiding generic “good” or “bad” labeling.",
+        "Beauty and skincare products are highly subjective. A product that works well for one user may not work for another.",
+        "Instead of saying: “This product is bad” the experience focused on: “This product may not be suitable for your specific need.”",
+        "For example: Not for frizzy hair, Good for dry hair, Better for lightweight hydration.",
+        "This shifted the experience from broad product judgment to contextual product understanding.",
+        "And from a business perspective, it helped users make faster and more confident decisions without leaving the PDP journey." ] },
+      { h: "My Contribution", p: [
+        "As the UX Designer on the project, I worked on: User behavior analysis through funnel tracking and session recordings, Identifying trust and decision-fatigue friction points, Designing the review feedback journey, Collaborating closely with the Product Manager on product direction, Defining the AI summary experience from a UX perspective, Simplifying review consumption within the PDP flow." ] },
+      { h: "Outcomes", p: [
+        "The project helped improve how users interacted with reviews during the purchase journey." ] },
+      { h: "Impact", p: [
+        "Increased review submissions across products.",
+        "Faster user decision-making.",
+        "Better interaction with PDP review sections.",
+        "Reduced friction within the conversion funnel.",
+        "PDP to Cart progression improved from 58% → 63%." ] },
+      { h: "Key Learning", p: [
+        "One of the biggest learnings from this project was understanding how solving one business problem can unintentionally create another.",
+        "Increasing review participation successfully improved trust across the platform, but it also introduced information overload.",
+        "The real UX challenge wasn’t simply adding more content. It was helping users consume the right information faster and with less effort.",
+        "This project reinforced the importance of designing not just for engagement, but for clarity, confidence, and decision-making speed within high-intent user journeys." ] },
     ],
     next: "billbuster",
   },
@@ -1154,6 +1386,8 @@ class Component extends DCLogic {
       caseImgAlt: c && c.imgAlt,
       casePlaceholder: c && c.placeholder,
       caseMetrics: c && c.metrics,
+      isSmytten: this.state.caseId === 'smytten',
+      caseNotSmytten: this.state.caseId !== 'smytten',
       caseSections: c && (c.sections || []).map((s) => ({
         h: s.h,
         p: s.p,
