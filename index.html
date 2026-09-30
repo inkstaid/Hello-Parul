@@ -10,7 +10,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;family=Press+Start+2P&amp;display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
@@ -23,6 +23,7 @@
   @keyframes spin{to{transform:rotate(360deg)}}
   @keyframes splashProgress{from{width:0%}to{width:100%}}
   @keyframes splashWiggle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+  @keyframes questLoad{0%{transform:translateX(-100%)}100%{transform:translateX(260%)}}
   @keyframes splashBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
 
@@ -75,6 +76,16 @@
   @media (max-width:760px){ .mobile-nav-badge{display:inline-flex !important} }
   @media (max-width:1024px){ .case-pad{order:1} .case-thumb-wrap{order:2} }
   .bottom-nav{display:none}
+  @media (max-width:1024px){ .quest-teaser{grid-template-columns:1fr !important} }
+  @media (max-width:760px){ .quest-grid{grid-template-columns:1fr !important} }
+  @media (max-width:760px){
+    .quest-locked-row{flex-direction:column !important;align-items:flex-start !important;gap:16px !important}
+    .quest-lock{width:48px !important;height:48px !important;border-radius:12px !important}
+    .quest-screen{padding:14px !important}
+    .quest-locked{padding:28px 22px !important}
+    .quest-teaser-img{padding:0 18px 18px !important}
+  }
+  @media (max-width:480px){ .quest-loot{grid-template-columns:1fr !important} }
   footer h2 ul{list-style:none;margin:0;padding:0}
   footer h2 li{margin:0}
   @media (max-width:760px){
@@ -111,7 +122,7 @@
     <div class="nav-links" style="display:flex;align-items:center;gap:8px;font-family:'Space Mono';font-size:13px">
       <button onClick="{{ goWork }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">work</button>
       <button onClick="{{ goAbout }}" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">about</button>
-      <button onClick="{{ goPlay }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">play with parul</button>
+      <button onClick="{{ goQuests }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">side quests</button>
       <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
         <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; color: #181510EB; border-radius: 999px; font-weight: 500; background-color: #F3EEE3; font-family: 'Space Mono'; font-size: 13px; border-width: 1.5px; border-style: solid; border-color: #FF3B1FEB">
           <span style="width: 7px; height: 7px; border-radius: 50px; animation: blink 1.4s infinite; background-color: #FF3B1FCC; color: #FF3B1FEB"></span>Open to work
@@ -297,8 +308,20 @@
 
     <!-- SMALLER PROJECTS -->
     <div class="mini-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
-      
-      
+      <article onClick="{{ goQuests }}" class="quest-teaser" style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;align-items:center;border:2px solid #181510;border-radius:26px;overflow:hidden;background:#181510;color:#F2EEE3;cursor:pointer" style-hover="box-shadow:0 10px 0 -4px #FF3B1F">
+        <div class="case-pad" style="padding:44px 44px 40px">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:22px">
+            <span style="padding:7px 10px;background:#FF3B1F;color:#F2EEE3;border-radius:8px;font-family:'Press Start 2P';font-size:9px;line-height:1">SIDE QUESTS</span>
+            <span style="padding:6px 11px;border:1px solid rgba(242,238,227,.35);border-radius:999px;font-family:'Space Mono';font-size:12px">Vibe-coded</span>
+          </div>
+          <h3 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(28px,3.3vw,42px);line-height:1.02;letter-spacing:-.025em;margin-bottom:16px;text-wrap:balance">Off the clock, I vibe-code games and tools.</h3>
+          <p style="font-size:17px;line-height:1.55;color:#cfc9ba;max-width:44ch">First one out: Dust &amp; Lead, a Wild West pixel-art platformer you can play right in your browser.</p>
+          <span style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:'Space Mono';font-size:14px;font-weight:700;border-bottom:2px solid #FF3B1F;padding-bottom:3px">Enter side quests →</span>
+        </div>
+        <div class="quest-teaser-img" style="padding:24px 24px 24px 0">
+          <img src="assets/dust-and-lead-cover.jpg" alt="Dust &amp; Lead title screen: a pixel-art Wild West town at sundown" loading="lazy" style="width:100%;height:auto;border-radius:14px;display:block">
+        </div>
+      </article>
     </div>
   </section>
 
@@ -334,7 +357,7 @@
     <button onClick="{{ goAbout }}" aria-label="About" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"></path></svg>
     </button>
-    <button onClick="{{ goPlay }}" aria-label="Play with Parul" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+    <button onClick="{{ goQuests }}" aria-label="Side quests" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8.5" width="19" height="9" rx="4"></rect><path d="M7.5 11v3M6 12.5h3"></path><circle cx="15.5" cy="11.5" r="0.9" fill="currentColor" stroke="none"></circle><circle cx="17.5" cy="13.5" r="0.9" fill="currentColor" stroke="none"></circle></svg>
     </button>
   </div>
@@ -354,7 +377,7 @@
     <div class="nav-links" style="display:flex;align-items:center;gap:8px;font-family:'Space Mono';font-size:13px">
       <button onClick="{{ goWork }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">work</button>
       <button onClick="{{ goAbout }}" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">about</button>
-      <button onClick="{{ goPlay }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">play with parul</button>
+      <button onClick="{{ goQuests }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">side quests</button>
       <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
         <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; color: #181510EB; border-radius: 999px; font-weight: 500; background-color: #F3EEE3; font-family: 'Space Mono'; font-size: 13px; border-width: 1.5px; border-style: solid; border-color: #FF3B1FEB">
           <span style="width: 7px; height: 7px; border-radius: 50px; animation: blink 1.4s infinite; background-color: #FF3B1FCC; color: #FF3B1FEB"></span>Open to work
@@ -476,7 +499,7 @@
     <button onClick="{{ goAbout }}" aria-label="About" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#7CFFB2;cursor:pointer">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"></path></svg>
     </button>
-    <button onClick="{{ goPlay }}" aria-label="Play with Parul" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+    <button onClick="{{ goQuests }}" aria-label="Side quests" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8.5" width="19" height="9" rx="4"></rect><path d="M7.5 11v3M6 12.5h3"></path><circle cx="15.5" cy="11.5" r="0.9" fill="currentColor" stroke="none"></circle><circle cx="17.5" cy="13.5" r="0.9" fill="currentColor" stroke="none"></circle></svg>
     </button>
   </div>
@@ -496,7 +519,7 @@
     <div class="nav-links" style="display:flex;align-items:center;gap:8px;font-family:'Space Mono';font-size:13px">
       <button onClick="{{ goWork }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">work</button>
       <button onClick="{{ goAbout }}" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">about</button>
-      <button onClick="{{ goPlay }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">play with parul</button>
+      <button onClick="{{ goQuests }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">side quests</button>
       <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
         <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; color: #181510EB; border-radius: 999px; font-weight: 500; background-color: #F3EEE3; font-family: 'Space Mono'; font-size: 13px; border-width: 1.5px; border-style: solid; border-color: #FF3B1FEB">
           <span style="width: 7px; height: 7px; border-radius: 50px; animation: blink 1.4s infinite; background-color: #FF3B1FCC; color: #FF3B1FEB"></span>Open to work
@@ -785,7 +808,7 @@
     <div class="nav-links" style="display:flex;align-items:center;gap:8px;font-family:'Space Mono';font-size:13px">
       <button onClick="{{ goWork }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">work</button>
       <button onClick="{{ goAbout }}" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">about</button>
-      <button onClick="{{ goPlay }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">play with parul</button>
+      <button onClick="{{ goQuests }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">side quests</button>
       <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
         <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; color: #181510EB; border-radius: 999px; font-weight: 500; background-color: #F3EEE3; font-family: 'Space Mono'; font-size: 13px; border-width: 1.5px; border-style: solid; border-color: #FF3B1FEB">
           <span style="width: 7px; height: 7px; border-radius: 50px; animation: blink 1.4s infinite; background-color: #FF3B1FCC; color: #FF3B1FEB"></span>Open to work
@@ -828,7 +851,115 @@
     <button onClick="{{ goAbout }}" aria-label="About" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"></path></svg>
     </button>
-    <button onClick="{{ goPlay }}" aria-label="Play with Parul" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#7CFFB2;cursor:pointer">
+    <button onClick="{{ goQuests }}" aria-label="Side quests" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8.5" width="19" height="9" rx="4"></rect><path d="M7.5 11v3M6 12.5h3"></path><circle cx="15.5" cy="11.5" r="0.9" fill="currentColor" stroke="none"></circle><circle cx="17.5" cy="13.5" r="0.9" fill="currentColor" stroke="none"></circle></svg>
+    </button>
+  </div>
+</nav>
+</sc-if>
+
+<!-- ===== SIDE QUESTS PAGE ===== -->
+<sc-if value="{{ isQuests }}" hint-placeholder-val="{{ false }}">
+<div class="wrap" style="max-width:1280px;margin:0 auto;padding:0 32px;overflow-x:clip">
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 0;background:rgba(242,238,227,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(24,21,16,.12)">
+    <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque';font-weight:800;font-size:19px;letter-spacing:-.02em;background:none;border:none;cursor:pointer;color:#181510;padding:0" style-hover="color:#FF3B1F">Parul Aggarwal</button>
+    <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
+      <span class="mobile-nav-badge" style="display:none;align-items:center;gap:6px;padding:6px 11px;color:#f3eee3;border-radius:999px;font-weight:600;background-color:#ff3b1f;font-family:'Space Mono';font-size:13px">
+        <span style="width:7px;height:7px;border-radius:50px;animation:blink 1.4s infinite;background-color:#f3eee3"></span>Open to work
+      </span>
+    </sc-if>
+    <div class="nav-links" style="display:flex;align-items:center;gap:8px;font-family:'Space Mono';font-size:13px">
+      <button onClick="{{ goWork }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">work</button>
+      <button onClick="{{ goAbout }}" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">about</button>
+      <button onClick="{{ goQuests }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">side quests</button>
+      <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
+        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; color: #181510EB; border-radius: 999px; font-weight: 500; background-color: #F3EEE3; font-family: 'Space Mono'; font-size: 13px; border-width: 1.5px; border-style: solid; border-color: #FF3B1FEB">
+          <span style="width: 7px; height: 7px; border-radius: 50px; animation: blink 1.4s infinite; background-color: #FF3B1FCC; color: #FF3B1FEB"></span>Open to work
+        </span>
+      </sc-if>
+    </div>
+  </nav>
+</div>
+
+<div class="wrap detail-wrap" style="max-width:1180px;margin:0 auto;padding:0 32px 90px;min-height:100vh">
+  <header class="detail-head" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 40px;padding:40px 0 28px">
+    <h1 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-.035em">
+      <span style="position:relative;display:inline-block;white-space:nowrap">Side quests<span style="position:absolute;left:-4px;right:-4px;bottom:0.08em;height:0.34em;background:#FFC83D;z-index:-1;transform:rotate(-1.5deg)"></span></span>.
+    </h1>
+    <p style="font-family:'Space Mono';font-size:14px;line-height:1.6;color:#3a352c;max-width:44ch;padding-bottom:4px">Games and tools I vibe-code with AI after hours. Real, playable, and not client work.</p>
+  </header>
+
+  <sc-for list="{{ quests }}" as="q" hint-placeholder-count="2">
+    <sc-if value="{{ q.shipped }}" hint-placeholder-val="{{ true }}">
+    <article style="border:2px solid #181510;border-radius:26px;overflow:hidden;background:#FBF9F3;margin-bottom:28px" style-hover="box-shadow:0 10px 0 -4px #FF3B1F">
+      <div class="quest-grid" style="display:grid;grid-template-columns:1.2fr .8fr">
+        <a href="{{ q.url }}" target="_blank" rel="noopener" aria-label="{{ q.playLabel }}" class="quest-screen" style="display:flex;align-items:center;background:#181510;padding:24px">
+          <img src="{{ q.img }}" alt="{{ q.imgAlt }}" loading="lazy" style="width:100%;height:auto;border-radius:12px;display:block">
+        </a>
+        <div class="case-pad" style="padding:40px 40px 36px;display:flex;flex-direction:column">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:22px">
+            <span style="padding:7px 10px;background:#181510;color:#F2EEE3;border-radius:8px;font-family:'Press Start 2P';font-size:9px;line-height:1">QUEST {{ q.num }}</span>
+            <span style="padding:6px 10px;background:#7CFFB2;color:#181510;border:1.5px solid #181510;border-radius:8px;font-family:'Press Start 2P';font-size:9px;line-height:1">✓ CLEARED</span>
+            <span style="padding:6px 11px;border:1px solid rgba(24,21,16,.3);border-radius:999px;font-family:'Space Mono';font-size:12px">{{ q.kind }}</span>
+          </div>
+          <h3 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(32px,3.6vw,48px);line-height:1;letter-spacing:-.03em;margin-bottom:14px">{{ q.title }}</h3>
+          <p style="font-size:17px;line-height:1.55;color:#3a352c">{{ q.desc }}</p>
+          <div class="quest-loot" style="display:grid;grid-template-columns:1fr 1fr;gap:18px 22px;margin-top:24px;padding-top:22px;border-top:1.5px dashed rgba(24,21,16,.25)">
+            <sc-for list="{{ q.loot }}" as="l" hint-placeholder-count="2">
+              <div>
+                <div style="font-family:'Space Mono';font-size:11px;color:#7a7468;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px">{{ l.k }}</div>
+                <div style="font-size:15px;font-weight:600;line-height:1.35">{{ l.v }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
+            <a href="{{ q.url }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 22px;background:#FF3B1F;color:#F2EEE3;border:2px solid #181510;border-radius:999px;box-shadow:0 4px 0 #181510;font-family:'Space Mono';font-weight:700;font-size:14px" style-hover="background:#181510">▶ Play now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+    </sc-if>
+
+    <sc-if value="{{ q.locked }}" hint-placeholder-val="{{ false }}">
+    <article class="quest-locked" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;border:2px dashed rgba(24,21,16,.4);border-radius:26px;padding:36px 40px;margin-bottom:28px;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(24,21,16,.035) 14px 28px)">
+      <div class="quest-locked-row" style="display:flex;align-items:center;gap:22px;flex:1 1 380px">
+        <div class="quest-lock" style="flex:none;width:64px;height:64px;border-radius:14px;background:#181510;display:flex;align-items:center;justify-content:center;color:#FFC83D">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"></rect><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"></path></svg>
+        </div>
+        <div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+            <span style="padding:7px 10px;background:#181510;color:#F2EEE3;border-radius:8px;font-family:'Press Start 2P';font-size:9px;line-height:1">QUEST {{ q.num }}</span>
+            <span style="padding:6px 10px;background:#FFC83D;color:#181510;border:1.5px solid #181510;border-radius:8px;font-family:'Press Start 2P';font-size:9px;line-height:1">LOCKED</span>
+          </div>
+          <h3 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(24px,2.6vw,32px);letter-spacing:-.025em;margin-bottom:6px">{{ q.title }}</h3>
+          <p style="font-size:16px;line-height:1.5;color:#3a352c;max-width:52ch">{{ q.desc }}</p>
+        </div>
+      </div>
+      <div style="flex:0 1 240px;min-width:180px">
+        <div style="font-family:'Press Start 2P';font-size:9px;line-height:1;color:#7a7468;margin-bottom:10px">LOADING…</div>
+        <div style="height:14px;border:2px solid #181510;border-radius:4px;overflow:hidden;background:#FBF9F3">
+          <div style="width:40%;height:100%;background:repeating-linear-gradient(90deg,#181510 0 8px,transparent 8px 11px);animation:questLoad 2.2s ease-in-out infinite"></div>
+        </div>
+      </div>
+    </article>
+    </sc-if>
+  </sc-for>
+
+  <p style="margin-top:40px;font-family:'Space Mono';font-size:13px;color:#7a7468">Got a side quest you think I should take on? <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=a.parulatwork@gmail.com&amp;su=A%20side%20quest%20idea" target="_blank" rel="noopener" style="color:#181510;font-weight:700;border-bottom:2px solid #FF3B1F" style-hover="color:#FF3B1F">Send it my way →</a></p>
+</div>
+
+<nav class="bottom-nav" style="position:fixed;bottom:0;left:0;right:0;z-index:70;height:56px;background:#181510;border-top:2px solid #181510">
+  <div style="display:flex;height:100%">
+    <button onClick="{{ goHome }}" aria-label="Home" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4h4v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9"></path></svg>
+    </button>
+    <button onClick="{{ goWork }}" aria-label="Work" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="1.5"></rect><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"></path><path d="M3 12.5h18"></path></svg>
+    </button>
+    <button onClick="{{ goAbout }}" aria-label="About" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"></path></svg>
+    </button>
+    <button onClick="{{ goQuests }}" aria-label="Side quests" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#7CFFB2;cursor:pointer">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8.5" width="19" height="9" rx="4"></rect><path d="M7.5 11v3M6 12.5h3"></path><circle cx="15.5" cy="11.5" r="0.9" fill="currentColor" stroke="none"></circle><circle cx="17.5" cy="13.5" r="0.9" fill="currentColor" stroke="none"></circle></svg>
     </button>
   </div>
@@ -1115,6 +1246,29 @@ const CASES = {
   },
 };
 
+// Side quests: add a new project to the top of this list.
+// shipped: true shows a playable card; locked: true shows a "coming soon" slot.
+const QUESTS = [
+  {
+    shipped: true,
+    title: "Dust & Lead",
+    kind: "Browser game",
+    desc: "A Wild West pixel-art platformer. The Crowe Boys took your horse: ride into Dry Creek, outgun the gang and get her back.",
+    url: "https://inkstaid.github.io/dust-and-lead/",
+    img: "assets/dust-and-lead-cover.jpg",
+    imgAlt: "Dust & Lead title screen: a pixel-art Wild West town at sundown with a gunslinger by the station",
+    loot: [
+      { k: "Genre", v: "2D pixel-art platformer" },
+      { k: "Art + music", v: "Every pixel and note made in code" },
+    ],
+  },
+  {
+    locked: true,
+    title: "Next quest loading…",
+    desc: "Something new is in the forge. Check back soon.",
+  },
+];
+
 const SKILLS = [
   "UX Strategy", "AI-Assisted Design", "User Research", "Wireframing",
   "Conversion Rate Optimisation", "Retention & Growth Design", "Interaction Design",
@@ -1186,6 +1340,7 @@ class Component extends DCLogic {
     if (h.startsWith('case/')) return { caseId: h.slice(5), page: 'home' };
     if (h === 'about') return { caseId: null, page: 'about' };
     if (h === 'play') return { caseId: null, page: 'play' };
+    if (h === 'side-quests') return { caseId: null, page: 'side-quests' };
     return { caseId: null, page: 'home' };
   }
 
@@ -1304,10 +1459,19 @@ class Component extends DCLogic {
       splashCaption: SPLASH_CAPTIONS[this.state.splashCaptionIndex],
       screenImgWidth,
       marqueePlay: reduceMotion ? 'paused' : 'running',
-      isHome: !id && this.state.page !== 'about' && this.state.page !== 'play',
+      isHome: !id && this.state.page !== 'about' && this.state.page !== 'play' && this.state.page !== 'side-quests',
       showCase: !!id,
       isAbout: !id && this.state.page === 'about',
       isPlay: !id && this.state.page === 'play',
+      isQuests: !id && this.state.page === 'side-quests',
+      quests: QUESTS.map((q, i) => ({
+        ...q,
+        num: String(i + 1).padStart(2, '0'),
+        shipped: !!q.shipped,
+        locked: !!q.locked,
+        playLabel: 'Play ' + q.title,
+        loot: q.loot || [],
+      })),
       skills: SKILLS,
       downloadResume: (e) => this.downloadResume(e),
       aboutTrackStyle: {
@@ -1352,6 +1516,9 @@ class Component extends DCLogic {
       openOnboarding: this.open('onboarding'),
       openSystem: this.open('system'),
       goAbout: () => this.navigate({ caseId: null, page: 'about' }, () => {
+        try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, 0); }
+      }),
+      goQuests: () => this.navigate({ caseId: null, page: 'side-quests' }, () => {
         try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, 0); }
       }),
       goPlay: () => this.navigate({ caseId: null, page: 'play' }, () => {
