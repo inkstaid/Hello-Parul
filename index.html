@@ -919,6 +919,16 @@
               </div>
             </sc-for>
           </div>
+          <sc-if value="{{ q.hasHowto }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:22px;padding-top:20px;border-top:1.5px dashed rgba(24,21,16,.25)">
+            <div style="font-family:'Space Mono';font-size:11px;color:#7a7468;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">How to play</div>
+            <ul style="list-style:none;padding:0;margin:0;display:grid;gap:9px">
+              <sc-for list="{{ q.howto }}" as="h" hint-placeholder-count="3">
+                <li style="position:relative;padding-left:20px;font-size:15px;line-height:1.45;color:#3a352c"><span style="position:absolute;left:0;top:0;color:#FF3B1F;font-weight:700">›</span>{{ h }}</li>
+              </sc-for>
+            </ul>
+          </div>
+          </sc-if>
           <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
             <sc-if value="{{ q.hasLink }}" hint-placeholder-val="{{ true }}">
             <a href="{{ q.url }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 22px;background:#FF3B1F;color:#F2EEE3;border:2px solid #181510;border-radius:999px;box-shadow:0 4px 0 #181510;font-family:'Space Mono';font-weight:700;font-size:14px" style-hover="background:#181510">{{ q.cta }}</a>
@@ -1284,8 +1294,14 @@ const QUESTS = [
     url: "https://github.com/inkstaid/DeskCat/releases/latest",
     cta: "⬇ Download for Mac",
     loot: [
-      { k: "Platform", v: "macOS menu-bar app (Swift)" },
+      { k: "Platform", v: "Mac only: macOS 13+, Apple Silicon & Intel" },
       { k: "Art", v: "AI-drawn frames, animated in code" },
+    ],
+    howto: [
+      "Open the download, drag DeskCat to Applications. First launch: System Settings → Privacy & Security → Open Anyway.",
+      "Click her for a slow blink. Stroke her with your cursor and she purrs.",
+      "Grab her by the scruff, or fling her across the screen.",
+      "🐾 in the menu bar: Focus 25 / 50 min, Feed, Cheer!, Take a Nap, Walking, Size, Launch at Login.",
     ],
   },
   {
@@ -1500,6 +1516,8 @@ class Component extends DCLogic {
         hasLink: !!q.url,
         noLink: !q.url,
         loot: q.loot || [],
+        howto: q.howto || [],
+        hasHowto: !!(q.howto && q.howto.length),
       })),
       skills: SKILLS,
       downloadResume: (e) => this.downloadResume(e),
