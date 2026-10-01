@@ -315,7 +315,7 @@
             <span style="padding:6px 11px;border:1px solid rgba(242,238,227,.35);border-radius:999px;font-family:'Space Mono';font-size:12px">Vibe-coded</span>
           </div>
           <h3 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(28px,3.3vw,42px);line-height:1.02;letter-spacing:-.025em;margin-bottom:16px;text-wrap:balance">Off the clock, I vibe-code games and tools.</h3>
-          <p style="font-size:17px;line-height:1.55;color:#cfc9ba;max-width:44ch">First one out: Dust &amp; Lead, a Wild West pixel-art platformer you can play right in your browser.</p>
+          <p style="font-size:17px;line-height:1.55;color:#cfc9ba;max-width:44ch">First one out: Dust &amp; Lead, a Wild West pixel-art platformer you can play right in your browser. Now joined by DeskCat, a little cat that lives on your Mac's Dock.</p>
           <span style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:'Space Mono';font-size:14px;font-weight:700;border-bottom:2px solid #FF3B1F;padding-bottom:3px">Enter side quests →</span>
         </div>
         <div class="quest-teaser-img" style="padding:24px 24px 24px 0">
@@ -893,9 +893,16 @@
     <sc-if value="{{ q.shipped }}" hint-placeholder-val="{{ true }}">
     <article style="border:2px solid #181510;border-radius:26px;overflow:hidden;background:#FBF9F3;margin-bottom:28px" style-hover="box-shadow:0 10px 0 -4px #FF3B1F">
       <div class="quest-grid" style="display:grid;grid-template-columns:1.2fr .8fr">
+        <sc-if value="{{ q.hasLink }}" hint-placeholder-val="{{ true }}">
         <a href="{{ q.url }}" target="_blank" rel="noopener" aria-label="{{ q.playLabel }}" class="quest-screen" style="display:flex;align-items:center;background:#181510;padding:24px">
           <img src="{{ q.img }}" alt="{{ q.imgAlt }}" loading="lazy" style="width:100%;height:auto;border-radius:12px;display:block">
         </a>
+        </sc-if>
+        <sc-if value="{{ q.noLink }}" hint-placeholder-val="{{ false }}">
+        <div class="quest-screen" style="display:flex;align-items:center;background:#181510;padding:24px">
+          <img src="{{ q.img }}" alt="{{ q.imgAlt }}" loading="lazy" style="width:100%;height:auto;border-radius:12px;display:block">
+        </div>
+        </sc-if>
         <div class="case-pad" style="padding:40px 40px 36px;display:flex;flex-direction:column">
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:22px">
             <span style="padding:7px 10px;background:#181510;color:#F2EEE3;border-radius:8px;font-family:'Press Start 2P';font-size:9px;line-height:1">QUEST {{ q.num }}</span>
@@ -913,7 +920,12 @@
             </sc-for>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
-            <a href="{{ q.url }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 22px;background:#FF3B1F;color:#F2EEE3;border:2px solid #181510;border-radius:999px;box-shadow:0 4px 0 #181510;font-family:'Space Mono';font-weight:700;font-size:14px" style-hover="background:#181510">▶ Play now</a>
+            <sc-if value="{{ q.hasLink }}" hint-placeholder-val="{{ true }}">
+            <a href="{{ q.url }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 22px;background:#FF3B1F;color:#F2EEE3;border:2px solid #181510;border-radius:999px;box-shadow:0 4px 0 #181510;font-family:'Space Mono';font-weight:700;font-size:14px" style-hover="background:#181510">{{ q.cta }}</a>
+            </sc-if>
+            <sc-if value="{{ q.noLink }}" hint-placeholder-val="{{ false }}">
+            <span style="display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border:2px dashed rgba(24,21,16,.45);border-radius:999px;font-family:'Space Mono';font-weight:700;font-size:14px;color:#3a352c">{{ q.soon }}</span>
+            </sc-if>
           </div>
         </div>
       </div>
@@ -1263,6 +1275,20 @@ const QUESTS = [
     ],
   },
   {
+    shipped: true,
+    title: "DeskCat",
+    kind: "Mac app",
+    desc: "A tuxedo cat in a red bandana who lives on top of your Dock. Start a focus session and she types along at her own laptop. Pet her, feed her, or fling her across the screen.",
+    img: "assets/deskcat-cover.jpg",
+    imgAlt: "DeskCat: a tuxedo cat in a red bandana napping, typing on a laptop and eating from a bowl on top of a Mac Dock",
+    url: "https://github.com/inkstaid/DeskCat/releases/latest",
+    cta: "⬇ Download for Mac",
+    loot: [
+      { k: "Platform", v: "macOS menu-bar app (Swift)" },
+      { k: "Art", v: "AI-drawn frames, animated in code" },
+    ],
+  },
+  {
     locked: true,
     title: "Next quest loading…",
     desc: "Something new is in the forge. Check back soon.",
@@ -1469,7 +1495,10 @@ class Component extends DCLogic {
         num: String(i + 1).padStart(2, '0'),
         shipped: !!q.shipped,
         locked: !!q.locked,
-        playLabel: 'Play ' + q.title,
+        playLabel: q.cta ? q.cta.replace(/^\W+/, '') + ': ' + q.title : 'Play ' + q.title,
+        cta: q.cta || '▶ Play now',
+        hasLink: !!q.url,
+        noLink: !q.url,
         loot: q.loot || [],
       })),
       skills: SKILLS,
